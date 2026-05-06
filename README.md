@@ -412,24 +412,24 @@
               <li>Printed webpage with talk description (date, time, abstract)</li>
               <li>Photocopy of recipient’s passport or Chinese ID card</li>
               <li>Bank details & phone number of recipient</li>
-              <li><strong>Labor service fee invoice</strong> (required when amount ≥ 1,000 RMB)</li>
+              <li><strong>Labor service fee invoice</strong></li>
             </ul>
           </li>
           <li><strong>Please note:</strong> The Payee need to get the labor service fee invoice via the Tax Bureau App. For foreign nationals first signing up, they'll need a <strong>registration code</strong> obtained from Tax Hall in person (valid 7 days).</li>
         </ul>
-        <div class="sub-note"><i class="fas fa-file-invoice-dollar"></i> Instruction on self-issuing labor service fee invoice: <a href="D:\WORK BIMSA\REIMBURSE\Others\Reimburse info\劳务费发票\Instructions for Issuing Invoice for Labor Service.docx"><i>Instructions for Self-Issuing Invoice for Labor Service Fee</i></a> or <a href="D:\WORK BIMSA\REIMBURSE\Others\Reimburse info\劳务费发票\劳务发票开具说明.docx"><i>劳务发票开具说明</i></a>.</div>
+        <div class="sub-note"><i class="fas fa-file-invoice-dollar"></i> Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</div>
       </div>
 
       <!-- STIPEND FOR VISITORS PANE -->
       <div id="stipendTab" class="tab-pane">
         <ul class="doc-list">
-          <li><strong>Standard:</strong> Up to <strong>9900 RMB per month</strong> for students (short-term visitors).</li>
+          <li><strong>Standard:</strong> Up to <strong>9900 RMB per month</strong> for students.</li>
           <li><strong>Documents required:</strong>
             <ul class="sub-list">
               <li>Short-term visitor application form + CV</li>
               <li>Photocopy of recipient’s passport or Chinese ID card</li>
               <li>Bank details & phone number of recipient</li>
-              <li><strong>Labor service fee invoice</strong> (if amount ≥ 1,000 RMB)</li>
+              <li><strong>Labor service fee invoice</strong></li>
             </ul>
           </li>
         </ul>
@@ -440,7 +440,8 @@
         <div class="info-block">
           <strong><i class="fas fa-file-invoice"></i> Chinese VAT invoice for labor service fee:</strong> <p class="sub-list">
             <li>Individuals need to self-issue via official National Tax Bureau app.</li>
-          <li>Foreign nationals: obtain 7-day registration code at local Tax Hall in person.</li> 
+          <li>Foreign nationals: obtain 7-day registration code at local Tax Hall in person.</li>
+          <li>Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</li> 
         </p> </div>
         <div style="background:#eef3f9; padding: 0.8rem; border-radius: 14px; margin: 1rem 0;">
           <p class="doc-list">BIMSA tax info:

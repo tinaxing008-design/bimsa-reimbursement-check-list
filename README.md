@@ -19,6 +19,7 @@
       background: #f4f7fc;
       color: #1a2c3e;
       line-height: 1.5;
+      scroll-behavior: smooth; /* enables smooth jump to anchors */
     }
 
     /* SINGLE PAGE LAYOUT: all info inline, no folder/card navigation */
@@ -230,6 +231,11 @@
     a:hover {
       text-decoration: underline;
     }
+    /* smooth highlight effect for FAQ anchor */
+    .faq-highlight-target {
+      scroll-margin-top: 80px;
+      transition: background 0.3s ease;
+    }
     @media (max-width: 700px) {
       .reimbursement-container { padding: 1rem; }
       .section-body { padding: 1.2rem; }
@@ -246,16 +252,18 @@
   </div>
 
   <!-- ==================== TRAVEL SECTION (FULL INFO, NO FOLDERS) ==================== -->
-  <div class="section-card">
+  <div class="section-card" id="travel-section-card">
     <div class="section-header">
       <h2><i class="fas fa-plane-departure"></i> Travel Reimbursement</h2>
     </div>
     <div class="section-body">
-      <!-- inline tabs for travel: domestic / international / trip.com invoice guide -->
+      <!-- inline tabs for travel: domestic / international / trip.com invoice guide / FAQ (now with anchor support) -->
       <div class="inline-tabs" id="travelTabs">
         <button class="tab-btn active-tab" data-tab="domesticTravel">Domestic Travel</button>
         <button class="tab-btn" data-tab="internationalTravel">🌍 International Travel</button>
         <button class="tab-btn" data-tab="tripcomGuide">🧾 Trip.com Invoice guide</button>
+        <!-- The FAQ button will now direct users to the FAQ pane AND also smoothly scroll to the Travel FAQ section -->
+        <button class="tab-btn" id="faqTabButton" data-tab="faq">❓ FAQ</button>
       </div>
 
       <!-- DOMESTIC TRAVEL PANE -->
@@ -328,13 +336,13 @@
           <div class="sub-note">For invited visitors: If <b>support provided</b>, we need to obtain <b>VP's approval</b> and its screenshot is required by the finance</div>
           <li>Photo of passport photo-page (if not provided)</li>
           <li>Bank details and expected currency (for visitors)</li>
+          <li>Payment proof: bank/credit card statement showing the purchase</li>
         </ul>
         <h3 style="font-weight: 600;">✈️ Flight:</h3>
         <ul class="doc-list">
           <li>Boarding passes (photo/original)</li>
           <li>Electronic flight invoice/receipt; if bought via Chinese sites (incl. Trip.com): Chinese VAT invoice (fapiao) required</li>
           <li>Online booking confirmation showing price breakdown, passenger & itinerary</li>
-          <li>Payment proof: bank/credit card statement showing flight purchase</li>
         </ul>
         <h3 style="font-weight: 600;">🏨 Hotel:</h3>
         <ul class="doc-list">
@@ -383,6 +391,16 @@
           <strong>Tax Number:</strong> 52110000MJ0166456X
         </div>
         <div class="sub-note"><i class="fas fa-globe"></i> This VAT invoice process applies for both domestic & international bookings made via Trip.com. Request invoice before closing the booking.</div>
+      </div>
+      
+      <!-- FAQ PANE (with anchor ID for smooth scrolling) -->
+      <div id="faq" class="tab-pane">
+        <h3>Frequently Asked Questions</h3>
+        <ul class="doc-list">
+          <li><strong>Q:</strong> Can I get reimbursed for the seat selection fee of my flight ?<br/><strong>A:</strong> No, it is not reimbursable.</li>
+          <li><strong>Q:</strong> What type of insurance can be reimbursed for my travel?<br/><strong>A:</strong> The personal accident insurance can be reimbursed with a valid invoice.</li>
+          <li><strong>Q:</strong>Can I reimburse the actual expenses for my car ride to/from the airport in the destination of my academic trip instead of claiming per diem?<br/><strong>A:</strong> Yes, but please ensure you have a valid invoice/receipt and an itinerary which clearly shows the route between the airport and your accommodation.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -460,8 +478,8 @@
 
 <script>
   // -------- TAB SYSTEM (unified for both travel and labor sections, no folders, all inline) --------
-  function initSectionTabs(sectionId, tabButtonsSelector, tabPanesMapping) {
-    const container = document.getElementById(sectionId);
+  function initSectionTabs(sectionContainerId, tabButtonsSelector, tabPanesMapping) {
+    const container = document.getElementById(sectionContainerId);
     if (!container) return;
     const buttons = container.querySelectorAll(tabButtonsSelector);
     const panes = {};
@@ -471,7 +489,6 @@
     }
 
     function activateTab(activeKey) {
-      // deactivate all buttons in this container
       buttons.forEach(btn => {
         btn.classList.remove('active-tab');
         const tabVal = btn.getAttribute('data-tab');
@@ -487,10 +504,24 @@
         const tabValue = btn.getAttribute('data-tab');
         if (tabValue && panes[tabValue]) {
           activateTab(tabValue);
+          // SPECIAL HANDLING: if clicked button has id="faqTabButton" we trigger smooth scroll to bring FAQ into view after pane becomes visible
+          if (btn.id === 'faqTabButton') {
+            // slight delay to ensure DOM reflow then scroll to the FAQ pane
+            setTimeout(() => {
+              const faqPaneElement = document.getElementById('faq');
+              if (faqPaneElement) {
+                faqPaneElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // optional: simple highlight effect
+                faqPaneElement.style.transition = 'background 0.3s';
+                faqPaneElement.style.backgroundColor = '#fff9e5';
+                setTimeout(() => { faqPaneElement.style.backgroundColor = ''; }, 800);
+              }
+            }, 50);
+          }
         }
       });
     });
-    // set default: first active button
+    // set default
     const defaultActive = Array.from(buttons).find(btn => btn.classList.contains('active-tab'));
     if (defaultActive) {
       const defaultVal = defaultActive.getAttribute('data-tab');
@@ -501,11 +532,12 @@
     }
   }
 
-  // Travel tabs mapping
+  // Travel tabs mapping (including faq pane)
   initSectionTabs('travelTabs', '.tab-btn', {
     'domesticTravel': 'domesticTravel',
     'internationalTravel': 'internationalTravel',
-    'tripcomGuide': 'tripcomGuide'
+    'tripcomGuide': 'tripcomGuide',
+    'faq': 'faq'
   });
   // Labor tabs mapping
   initSectionTabs('laborTabs', '.tab-btn', {
@@ -514,9 +546,9 @@
     'notesTab': 'notesTab'
   });
 
-  // ensure that if any manual override, but we also need initial consistency for DOM ready
+  // Ensure the global FAQ button scroll works even if the user clicks from anywhere (extra safety: but direct binding already included)
   document.addEventListener('DOMContentLoaded', function() {
-    // double-check travel default
+    // fix any potential missing active pane for travel: ensure consistent initial state 
     const travelContainer = document.getElementById('travelTabs');
     if (travelContainer) {
       const activeTravelBtn = travelContainer.querySelector('.tab-btn.active-tab');
@@ -531,6 +563,14 @@
       if (!activeLaborBtn || !document.getElementById('honorariaTab').classList.contains('active-pane')) {
         const honorBtn = laborContainer.querySelector('[data-tab="honorariaTab"]');
         if (honorBtn) honorBtn.click();
+      }
+    }
+    
+    // Additional: allow direct hash navigation if someone links to #faq (makes url work)
+    if (window.location.hash === '#faq') {
+      const faqTabTrigger = document.querySelector('#travelTabs [data-tab="faq"]');
+      if (faqTabTrigger) {
+        faqTabTrigger.click();
       }
     }
   });

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,17 +20,17 @@
       background: #f4f7fc;
       color: #1a2c3e;
       line-height: 1.5;
-      scroll-behavior: smooth; /* enables smooth jump to anchors */
+      scroll-behavior: smooth;
     }
 
-    /* SINGLE PAGE LAYOUT: all info inline, no folder/card navigation */
+    /* SINGLE PAGE LAYOUT */
     .reimbursement-container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 2rem 1.5rem 3rem;
     }
 
-    /* main title & header */
+    /* MAIN HEADER */
     .global-header {
       text-align: center;
       margin-bottom: 3rem;
@@ -60,7 +61,7 @@
       color: #2c6e9e;
     }
 
-    /* section styling */
+    /* SECTION CARDS */
     .section-card {
       background: white;
       border-radius: 1.8rem;
@@ -90,7 +91,7 @@
       padding: 1.5rem 2rem 2rem;
     }
 
-    /* tab navigation (inline inside travel & labor blocks, but no folder layers) */
+    /* INLINE TABS */
     .inline-tabs {
       display: flex;
       flex-wrap: wrap;
@@ -133,7 +134,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* document list styling */
+    /* LISTS & DOCUMENTS */
     .doc-list {
       list-style: none;
       padding-left: 0.2rem;
@@ -231,7 +232,6 @@
     a:hover {
       text-decoration: underline;
     }
-    /* smooth highlight effect for FAQ anchor */
     .faq-highlight-target {
       scroll-margin-top: 80px;
       transition: background 0.3s ease;
@@ -246,27 +246,26 @@
 </head>
 <body>
 <div class="reimbursement-container">
-  <!-- unified header -->
+
+  <!-- HERO HEADER -->
   <div class="global-header">
     <h1>BIMSA Reimbursement Guidelines</h1>
   </div>
 
-  <!-- ==================== TRAVEL SECTION (FULL INFO, NO FOLDERS) ==================== -->
+  <!-- ==================== 1. TRAVEL SECTION ==================== -->
   <div class="section-card" id="travel-section-card">
     <div class="section-header">
       <h2><i class="fas fa-plane-departure"></i> Travel Reimbursement</h2>
     </div>
     <div class="section-body">
-      <!-- inline tabs for travel: domestic / international / trip.com invoice guide / FAQ (now with anchor support) -->
       <div class="inline-tabs" id="travelTabs">
         <button class="tab-btn active-tab" data-tab="domesticTravel">Domestic Travel</button>
         <button class="tab-btn" data-tab="internationalTravel">🌍 International Travel</button>
         <button class="tab-btn" data-tab="tripcomGuide">🧾 Trip.com Invoice guide</button>
-        <!-- The FAQ button will now direct users to the FAQ pane AND also smoothly scroll to the Travel FAQ section -->
         <button class="tab-btn" id="faqTabButton" data-tab="faq">❓ FAQ</button>
       </div>
 
-      <!-- DOMESTIC TRAVEL PANE -->
+      <!-- DOMESTIC TRAVEL -->
       <div id="domesticTravel" class="tab-pane active-pane">
         <h3>Documents checklist:</h3>
         <div class="doc-list">
@@ -297,19 +296,28 @@
           <li>Electronic itinerary</li>
           <li>Chinese VAT invoice</li>
         </ul>
-        <div class="sub-note" class="sub-list">
+        <div class="sub-note">
           <li>1. Platforms like Didi do not count toll fee (usu. 17 RMB) in the total on the invoice. In cases where a toll fee is incurred and you need to reimburse it, please ask the driver for the separate invoice.</li>
           <li>2. To avoid the above problem, you can take a taxi and ask for an invoice from the driver when getting off the car.</li>
-</div>
-        <div class="standard-grid">
-          <div class="std-card"><strong>✈️ Transport Standard</strong> <p class="sub-list">
-            <li>Professors: <span style="color:crimson;">Business-class</span>/Economy-class flight and <span style="color:crimson;">First-class</span> train</li>
-            <li>Associate Professors and others: Economy-class flight and Second-class train</li> <br>Refer to p.24 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%BD%E5%86%85%E5%B7%AE%E6%97%85%E8%B4%B9%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院国内差旅费管理办法（试行）</i></a></p></div>
-          <div class="std-card"><strong>🏨 Accommodation Standard</strong> Upper Limit in Beijing/Shanghai: <p class="sub-list">
-            <li>Professors: 1080 RMB/night </li>
-            <li>Other personnel: 990 RMB/night</li><br>See p.25 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%BD%E5%86%85%E5%B7%AE%E6%97%85%E8%B4%B9%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院国内差旅费管理办法（试行）</i></a></p></div>
         </div>
-
+        <div class="standard-grid">
+          <div class="std-card">
+            <strong>✈️ Transport Standard</strong>
+            <p class="sub-list">
+              <li>Professors: <span style="color:crimson;">Business-class</span>/Economy-class flight and <span style="color:crimson;">First-class</span> train</li>
+              <li>Associate Professors and others: Economy-class flight and Second-class train</li>
+              <br>Refer to p.24 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%BD%E5%86%85%E5%B7%AE%E6%97%85%E8%B4%B9%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院国内差旅费管理办法（试行）</i></a>
+            </p>
+          </div>
+          <div class="std-card">
+            <strong>🏨 Accommodation Standard</strong> Upper Limit in Beijing/Shanghai:
+            <p class="sub-list">
+              <li>Professors: 1080 RMB/night</li>
+              <li>Other personnel: 990 RMB/night</li>
+              <br>See p.25 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%BD%E5%86%85%E5%B7%AE%E6%97%85%E8%B4%B9%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院国内差旅费管理办法（试行）</i></a>
+            </p>
+          </div>
+        </div>
         <h3 style="font-weight: 600; margin-top: 1rem;">🍱 Per diem allowance (meals & local transport)</h3>
         <ul class="doc-list">
           <li><strong>Rate:</strong> Meal 100 RMB/day + Local transport 80 RMB/day.</li>
@@ -317,7 +325,9 @@
         </ul>
         <h4>📅 Per diem counting rules</h4>
         <table class="perdiem-table">
-          <thead><tr><th>Trip duration (days)</th><th>Allowance calculation</th></tr></thead>
+          <thead>
+            <tr><th>Trip duration (days)</th><th>Allowance calculation</th></tr>
+          </thead>
           <tbody>
             <tr><td>≤ 10 days</td><td>Full allowance for all days (meal + local transport).</td></tr>
             <tr><td>10–15 days</td><td>10 days full allowance + extra days at half rate.</td></tr>
@@ -327,7 +337,7 @@
         <div class="sub-note"><i class="fas fa-info-circle"></i> Per diem claimable only if traveler bears own meals & local transit. "No support" clause mandatory.</div>
       </div>
 
-      <!-- INTERNATIONAL TRAVEL PANE -->
+      <!-- INTERNATIONAL TRAVEL -->
       <div id="internationalTravel" class="tab-pane">
         <h3>Documents checklist</h3>
         <ul class="doc-list">
@@ -352,11 +362,17 @@
         </ul>
         <h3 style="font-weight: 600;">🚗 Car ride to/from airport:</h3>
         <ul class="doc-list">
-        <li>itinerary </li>
-        <li>Chinese VAT invoice</li></ul>
+          <li>itinerary</li>
+          <li>Chinese VAT invoice</li>
+        </ul>
         <div class="standard-grid">
-          <div class="std-card"><strong>Transport Standard</strong> Professors are eligible for Business-class/Economy-class flight. <br>Please refer p.41 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%A0%E5%85%AC%E4%B8%B4%E6%97%B6%E5%87%BA%E5%9B%BD%E8%B4%B9%E7%94%A8%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院因公临时出国费用管理办法（试行）</i></a></div>
-          <div class="std-card"><strong>Accommodation Standard</strong> Please refer p.44-45 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%A0%E5%85%AC%E4%B8%B4%E6%97%B6%E5%87%BA%E5%9B%BD%E8%B4%B9%E7%94%A8%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院因公临时出国费用管理办法（试行）</i></a></div>
+          <div class="std-card">
+            <strong>Transport Standard</strong> Professors are eligible for Business-class/Economy-class flight.
+            <br>Please refer p.41 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%A0%E5%85%AC%E4%B8%B4%E6%97%B6%E5%87%BA%E5%9B%BD%E8%B4%B9%E7%94%A8%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院因公临时出国费用管理办法（试行）</i></a>
+          </div>
+          <div class="std-card">
+            <strong>Accommodation Standard</strong> Please refer p.44-45 <a href="https://bimsa.net/doc/regulations/%E5%8C%97%E4%BA%AC%E9%9B%81%E6%A0%96%E6%B9%96%E5%BA%94%E7%94%A8%E6%95%B0%E5%AD%A6%E7%A0%94%E7%A9%B6%E9%99%A2%E5%9B%A0%E5%85%AC%E4%B8%B4%E6%97%B6%E5%87%BA%E5%9B%BD%E8%B4%B9%E7%94%A8%E7%AE%A1%E7%90%86%E5%8A%9E%E6%B3%95%EF%BC%88%E8%AF%95%E8%A1%8C%EF%BC%89.pdf"><i>北京雁栖湖应用数学研究院因公临时出国费用管理办法（试行）</i></a>
+          </div>
         </div>
         <h3 style="font-weight: 600;">🍽️ Per diem allowance (meals & local transport)</h3>
         <ul class="doc-list">
@@ -375,7 +391,7 @@
         </table>
       </div>
 
-      <!-- TRIP.COM INVOICE GUIDE PANE -->
+      <!-- TRIP.COM INVOICE GUIDE -->
       <div id="tripcomGuide" class="tab-pane">
         <div class="info-block">
           <i class="fas fa-receipt" style="margin-right: 8px;"></i> <strong>How to issue Chinese VAT invoice from Trip.com</strong>
@@ -392,20 +408,20 @@
         </div>
         <div class="sub-note"><i class="fas fa-globe"></i> This VAT invoice process applies for both domestic & international bookings made via Trip.com. Request invoice before closing the booking.</div>
       </div>
-      
-      <!-- FAQ PANE (with anchor ID for smooth scrolling) -->
+
+      <!-- FAQ PANE (anchor friendly) -->
       <div id="faq" class="tab-pane">
         <h3>Frequently Asked Questions</h3>
         <ul class="doc-list">
           <li><strong>Q:</strong> Can I get reimbursed for the seat selection fee of my flight ?<br/><strong>A:</strong> No, it is not reimbursable.</li>
           <li><strong>Q:</strong> What type of insurance can be reimbursed for my travel?<br/><strong>A:</strong> The personal accident insurance can be reimbursed with a valid invoice.</li>
-          <li><strong>Q:</strong>Can I reimburse the actual expenses for my car ride to/from the airport in the destination of my academic trip instead of claiming per diem?<br/><strong>A:</strong> Yes, but please ensure you have a valid invoice/receipt and an itinerary which clearly shows the route between the airport and your accommodation.</li>
+          <li><strong>Q:</strong> Can I reimburse the actual expenses for my car ride to/from the airport in the destination of my academic trip instead of claiming per diem?<br/><strong>A:</strong> Yes, but please ensure you have a valid invoice/receipt and an itinerary which clearly shows the route between the airport and your accommodation.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- ==================== LABOR SERVICE FEE SECTION (FULL INFO) ==================== -->
+  <!-- ==================== 2. LABOR SERVICE FEE SECTION ==================== -->
   <div class="section-card">
     <div class="section-header">
       <h2><i class="fas fa-file-invoice-dollar"></i> Labor Service Fee & Stipends</h2>
@@ -417,7 +433,7 @@
         <button class="tab-btn" data-tab="notesTab">📌 Tax & Invoicing notes</button>
       </div>
 
-      <!-- HONORARIA PANE -->
+      <!-- HONORARIA -->
       <div id="honorariaTab" class="tab-pane active-pane">
         <ul class="doc-list">
           <li><strong>Standard rates:</strong><br/>
@@ -438,7 +454,7 @@
         <div class="sub-note"><i class="fas fa-file-invoice-dollar"></i> Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</div>
       </div>
 
-      <!-- STIPEND FOR VISITORS PANE -->
+      <!-- STIPEND -->
       <div id="stipendTab" class="tab-pane">
         <ul class="doc-list">
           <li><strong>Standard:</strong> Up to <strong>9900 RMB per month</strong> for students.</li>
@@ -454,30 +470,33 @@
         </ul>
       </div>
 
-      <!-- TAX & INVOICING NOTES PANE -->
+      <!-- TAX & INVOICING NOTES -->
       <div id="notesTab" class="tab-pane">
         <div class="info-block">
-          <strong><i class="fas fa-file-invoice"></i> Chinese VAT invoice for labor service fee:</strong> <p class="sub-list">
-          <li>Individuals need to self-issue via 电子税务局 (official National Tax Bureau) app.</li>
-          <li>Foreign nationals: obtain 7-day registration code at local Tax Hall in person.</li>
-          <li>Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</li>
-          <li>Should any problems encounter and could not self-issue the invoice, please come to A1-106 and sign the </li> 
-        </p> </div>
+          <strong><i class="fas fa-file-invoice"></i> Chinese VAT invoice for labor service fee:</strong>
+          <p class="sub-list">
+            <li>Individuals need to self-issue via 电子税务局 (official National Tax Bureau) app.</li>
+            <li>Foreign nationals: obtain 7-day registration code at local Tax Hall in person.</li>
+            <li>Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</li>
+            <li>Should any problems encounter and could not self-issue the invoice, please come to A1-106 and sign the form.</li>
+          </p>
+        </div>
         <div style="background:#eef3f9; padding: 0.8rem; border-radius: 14px; margin: 1rem 0;">
           <p class="doc-list">BIMSA tax info:
-           <li><strong>Chinese Name:</strong> 北京雁栖湖应用数学研究院 </li>
-          <li><strong>Tax Number:</strong> 52110000MJ0166456X</li>
-        </p></div>
+            <li><strong>Chinese Name:</strong> 北京雁栖湖应用数学研究院</li>
+            <li><strong>Tax Number:</strong> 52110000MJ0166456X</li>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  <!-- ==================== Purchase ==================== -->
-   <div class="section-card">
+
+  <!-- ==================== 3. PURCHASE SECTION ==================== -->
+  <div class="section-card">
     <div class="section-header">
       <h2><i class="fas fa-shopping-cart"></i> Purchase Reimbursement</h2>
     </div>
     <div class="section-body">
-      <!-- Purchase ApplicationPANE -->
       <div id="purchaseTab" class="tab-pane active-pane">
         <h3>Documents Checklist</h3>
         <ul class="doc-list">
@@ -486,14 +505,16 @@
           <li>Electronic invoice, listing item and price</li>
           <li>Fixed-asset registration form (if the unit price is 1,000 RMB or above)</li>
           <li>Procurement contract if the amount exceeds 30,000 RMB</li>
-          <li>Thir-party price comparison (apply to online purchases over 30,000 RMB or non-online purchases over 5,000 RMB) <div class="sub-note">Price comparision is uaually not needed if bought via the official website of the supplier</div></li>
+          <li>Third-party price comparison (apply to online purchases over 30,000 RMB or non-online purchases over 5,000 RMB)
+            <div class="sub-note">Price comparison is usually not needed if bought via the official website of the supplier</div>
+          </li>
           <li>Payment proof if the amount exceeds 10,000 RMB</li>
         </ul>
         <h4>Purchase Approval Process</h4>
         <table class="perdiem-table">
           <thead><tr><th>Amount Range (RMB)</th><th>Approval Required</th></tr></thead>
-          <tbody> 
-            <tr><td> <1,000 RMB</td><td>Group PI</td></tr>
+          <tbody>
+            <tr><td>&lt; 1,000 RMB</td><td>Group PI</td></tr>
             <tr><td>1,000 - 10,000 RMB</td><td>Vice President in charge</td></tr>
             <tr><td>10,000 - 30,000 RMB</td><td>Executive Vice President (EVP)</td></tr>
             <tr><td>30,000 RMB - 100,000 RMB</td><td>Board of Presidents</td></tr>
@@ -507,17 +528,19 @@
           <li>Arrival date</li>
           <li>Manufacturer information</li>
           <li>Location of the asset</li>
-      </div>  
+        </ul>
+      </div>
+    </div>
   </div>
 
-  <!-- additional reference note (global) -->
+  <!-- FOOTER REFERENCE -->
   <div style="text-align: center; margin-top: 1.5rem; font-size: 0.75rem; color: #8aa0b5; border-top: 1px solid #d4e2ec; padding-top: 1.5rem;">
     <i class="fas fa-regular fa-building"></i> For updated policies refer to Financial Handbook (First Edition) | Contact finance@bimsa.cn
   </div>
 </div>
 
 <script>
-  // -------- TAB SYSTEM (unified for both travel and labor sections, no folders, all inline) --------
+  // -------- TAB SYSTEM (travel & labor) --------
   function initSectionTabs(sectionContainerId, tabButtonsSelector, tabPanesMapping) {
     const container = document.getElementById(sectionContainerId);
     if (!container) return;
@@ -529,11 +552,8 @@
     }
 
     function activateTab(activeKey) {
-      buttons.forEach(btn => {
-        btn.classList.remove('active-tab');
-        const tabVal = btn.getAttribute('data-tab');
-        if (panes[tabVal]) panes[tabVal].classList.remove('active-pane');
-      });
+      buttons.forEach(btn => btn.classList.remove('active-tab'));
+      Object.values(panes).forEach(pane => pane.classList.remove('active-pane'));
       const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('data-tab') === activeKey);
       if (activeBtn) activeBtn.classList.add('active-tab');
       if (panes[activeKey]) panes[activeKey].classList.add('active-pane');
@@ -544,35 +564,26 @@
         const tabValue = btn.getAttribute('data-tab');
         if (tabValue && panes[tabValue]) {
           activateTab(tabValue);
-          // SPECIAL HANDLING: if clicked button has id="faqTabButton" we trigger smooth scroll to bring FAQ into view after pane becomes visible
           if (btn.id === 'faqTabButton') {
-            // slight delay to ensure DOM reflow then scroll to the FAQ pane
             setTimeout(() => {
-              const faqPaneElement = document.getElementById('faq');
-              if (faqPaneElement) {
-                faqPaneElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // optional: simple highlight effect
-                faqPaneElement.style.transition = 'background 0.3s';
-                faqPaneElement.style.backgroundColor = '#fff9e5';
-                setTimeout(() => { faqPaneElement.style.backgroundColor = ''; }, 800);
+              const faqPane = document.getElementById('faq');
+              if (faqPane) {
+                faqPane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                faqPane.style.transition = 'background 0.3s';
+                faqPane.style.backgroundColor = '#fff9e5';
+                setTimeout(() => { faqPane.style.backgroundColor = ''; }, 800);
               }
             }, 50);
           }
         }
       });
     });
-    // set default
     const defaultActive = Array.from(buttons).find(btn => btn.classList.contains('active-tab'));
-    if (defaultActive) {
-      const defaultVal = defaultActive.getAttribute('data-tab');
-      if (defaultVal && panes[defaultVal]) activateTab(defaultVal);
-    } else if (buttons.length > 0) {
-      const firstVal = buttons[0].getAttribute('data-tab');
-      if (firstVal && panes[firstVal]) activateTab(firstVal);
-    }
+    if (defaultActive) activateTab(defaultActive.getAttribute('data-tab'));
+    else if (buttons.length) activateTab(buttons[0].getAttribute('data-tab'));
   }
 
-  // Travel tabs mapping (including faq pane)
+  // Travel tabs mapping
   initSectionTabs('travelTabs', '.tab-btn', {
     'domesticTravel': 'domesticTravel',
     'internationalTravel': 'internationalTravel',
@@ -586,34 +597,17 @@
     'notesTab': 'notesTab'
   });
 
-  // Ensure the global FAQ button scroll works even if the user clicks from anywhere (extra safety: but direct binding already included)
   document.addEventListener('DOMContentLoaded', function() {
-    // fix any potential missing active pane for travel: ensure consistent initial state 
+    // ensure travel initial state
     const travelContainer = document.getElementById('travelTabs');
-    if (travelContainer) {
-      const activeTravelBtn = travelContainer.querySelector('.tab-btn.active-tab');
-      if (!activeTravelBtn || !document.getElementById('domesticTravel').classList.contains('active-pane')) {
-        const domesticBtn = travelContainer.querySelector('[data-tab="domesticTravel"]');
-        if (domesticBtn) domesticBtn.click();
-      }
+    if (travelContainer && !document.getElementById('domesticTravel').classList.contains('active-pane')) {
+      const domesticBtn = travelContainer.querySelector('[data-tab="domesticTravel"]');
+      if (domesticBtn) domesticBtn.click();
     }
     const laborContainer = document.getElementById('laborTabs');
-    if (laborContainer) {
-      const activeLaborBtn = laborContainer.querySelector('.tab-btn.active-tab');
-      if (!activeLaborBtn || !document.getElementById('honorariaTab').classList.contains('active-pane')) {
-        const honorBtn = laborContainer.querySelector('[data-tab="honorariaTab"]');
-        if (honorBtn) honorBtn.click();
-      }
+    if (laborContainer && !document.getElementById('honorariaTab').classList.contains('active-pane')) {
+      const honorBtn = laborContainer.querySelector('[data-tab="honorariaTab"]');
+      if (honorBtn) honorBtn.click();
     }
-    
-    // Additional: allow direct hash navigation if someone links to #faq (makes url work)
-    if (window.location.hash === '#faq') {
-      const faqTabTrigger = document.querySelector('#travelTabs [data-tab="faq"]');
-      if (faqTabTrigger) {
-        faqTabTrigger.click();
-      }
-    }
-  });
-</script>
-</body>
-</html>
+    // hash navigation support
+    if (window

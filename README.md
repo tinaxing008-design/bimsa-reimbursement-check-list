@@ -442,6 +442,7 @@
       <div id="stipendTab" class="tab-pane">
         <ul class="doc-list">
           <li><strong>Standard:</strong> Up to <strong>9900 RMB per month</strong> for students.</li>
+          <p class="subnote">Note: Tsinghua usually offers graduate students a monthly stipend between RMB 2,000 and 3,000.</p>
           <li><strong>Documents required:</strong>
             <ul class="sub-list">
               <li>Short-term visitor application form + CV</li>
@@ -457,9 +458,10 @@
       <div id="notesTab" class="tab-pane">
         <div class="info-block">
           <strong><i class="fas fa-file-invoice"></i> Chinese VAT invoice for labor service fee:</strong> <p class="sub-list">
-            <li>Individuals need to self-issue via official National Tax Bureau app.</li>
+          <li>Individuals need to self-issue via 电子税务局 (official National Tax Bureau) app.</li>
           <li>Foreign nationals: obtain 7-day registration code at local Tax Hall in person.</li>
-          <li>Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</li> 
+          <li>Instruction on self-issuing labor service fee invoice: <a href="http://beijing.chinatax.gov.cn/bjswj/c104664/202604/818fed0a71e9472e85be01ac8ecac2de.shtml"><i>劳务发票开具说明</i></a>.</li>
+          <li>Should any problems encounter and could not self-issue the invoice, please come to A1-106 and sign the </li> 
         </p> </div>
         <div style="background:#eef3f9; padding: 0.8rem; border-radius: 14px; margin: 1rem 0;">
           <p class="doc-list">BIMSA tax info:
@@ -468,6 +470,44 @@
         </p></div>
       </div>
     </div>
+  </div>
+  <!-- ==================== Purchase ==================== -->
+   <div class="section-card">
+    <div class="section-header">
+      <h2><i class="fas fa-shopping-cart"></i> Purchase Reimbursement</h2>
+    </div>
+    <div class="section-body">
+      <!-- Purchase ApplicationPANE -->
+      <div id="purchaseTab" class="tab-pane active-pane">
+        <h3>Documents Checklist</h3>
+        <ul class="doc-list">
+          <li>Purchase Application Form</li>
+          <li>Online purchase order if bought online</li>
+          <li>Electronic invoice, listing item and price</li>
+          <li>Fixed-asset registration form (if the unit price is 1,000 RMB or above)</li>
+          <li>Procurement contract if the amount exceeds 30,000 RMB</li>
+          <li>Thir-party price comparison (apply to online purchases over 30,000 RMB or non-online purchases over 5,000 RMB) <div class="sub-note">Price comparision is uaually not needed if bought via the official website of the supplier</div></li>
+          <li>Payment proof if the amount exceeds 10,000 RMB</li>
+        </ul>
+        <h4>Purchase Approval Process</h4>
+        <table class="perdiem-table">
+          <thead><tr><th>Amount Range (RMB)</th><th>Approval Required</th></tr></thead>
+          <tbody> 
+            <tr><td> <1,000 RMB</td><td>Group PI</td></tr>
+            <tr><td>1,000 - 10,000 RMB</td><td>Vice President in charge</td></tr>
+            <tr><td>10,000 - 30,000 RMB</td><td>Executive Vice President (EVP)</td></tr>
+            <tr><td>30,000 RMB - 100,000 RMB</td><td>Board of Presidents</td></tr>
+          </tbody>
+        </table>
+        <h4>Information needed for Fixed-asset Registration Form</h4>
+        <ul class="doc-list">
+          <li>Photos of the asset (front, back, tag)</li>
+          <li>Asset specification and serial number</li>
+          <li>Warranty period</li>
+          <li>Arrival date</li>
+          <li>Manufacturer information</li>
+          <li>Location of the asset</li>
+      </div>  
   </div>
 
   <!-- additional reference note (global) -->

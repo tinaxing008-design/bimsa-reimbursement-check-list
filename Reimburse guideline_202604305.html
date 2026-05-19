@@ -495,7 +495,8 @@
           <li>Electronic invoice, listing item and price</li>
           <li>Fixed-asset registration form (if the unit price is 1,000 RMB or above)</li>
           <li>Procurement contract if the amount exceeds 30,000 RMB</li>
-          <li>Thir-party price comparison (apply to online purchases over 30,000 RMB or non-online purchases over 5,000 RMB) <div class="sub-note">Price comparision is uaually not needed if bought via the official website of the supplier</div></li>
+          <li>Thir-party price comparison (apply to online purchases over 30,000 RMB or non-online purchases over 5,000 RMB)
+          <div class="sub-note">Price comparision is uaually not needed if bought via the official website of the supplier</div></li>
           <li>Payment proof if the amount exceeds 10,000 RMB</li>
         </ul>
         <h4>Information needed for Fixed-asset Registration Form</h4>
